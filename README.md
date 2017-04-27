@@ -1,2 +1,2 @@
 # KnowYourCity
-aplikacja rozszerzona rzeczywistosc
+Aplikacja rozszerzona rzeczywistość.
