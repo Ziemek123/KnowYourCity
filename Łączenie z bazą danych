@@ -1,0 +1,20 @@
+<?php 
+ 
+function connection() { 
+     //serwer 
+    $mysql_server  =  "178.32.219.12"; 
+     //admin 
+    $mysql_admin = "1137147_GmE"; 
+     //hasło 
+    $mysql_pass = "kEkCyO4oj68Xot"; 
+     //nazwa baza 
+    $mysql_db = "Osoby"; 
+     //nawiązujemy połączenie z serwerem MySQL 
+    @mysql_connect($mysql_server, $mysql_admin, $mysql_pass) 
+    or die('Brak połączenia z serwerem MySQL.'); 
+     //łączymy się z bazą danych 
+    @mysql_select_db($mysql_db) 
+    or die('Błąd wyboru bazy danych.'); 
+} 
+
+?>
