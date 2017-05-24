@@ -1,0 +1,9 @@
+Po poszukiwaniach i analizach zdecydowałem,że w trakcie kolejnych spirntów bd starał się wraz z 
+Dawidem Lechem implenetować kod aplikacji w Javie z wykorzystaniem pewnych poniżej wymienionych bibliotek.
+ 
+ 
+ https://github.com/phishman3579/android-augment-reality-framework 
+ 
+ Tak naprawdę na chwile obecną ta jest wystarczająca do naszych potrzeb.
+ Co najważniejsze jest na opensourcowej licencji co oddala od nas problem finansowania naszej działalności.
+ 
