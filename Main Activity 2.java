@@ -22,17 +22,17 @@ import com.google.android.gms.location.LocationServices;
 public class MainActivity extends Activity implements ConnectionCallbacks,
         OnConnectionFailedListener, LocationListener {
  
-    // LogCat tag
+    // LogCat
     private static final String TAG = MainActivity.class.getSimpleName();
  
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 1000;
  
     private Location mLastLocation;
  
-    // Google client to interact with Google API
+    // Google client -> Google API
     private GoogleApiClient mGoogleApiClient;
  
-    // boolean flag to toggle periodic location updates
+    
     private boolean mRequestingLocationUpdates = false;
  
     private LocationRequest mLocationRequest;
@@ -42,7 +42,7 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
     private static int FATEST_INTERVAL = 5000; // 5 sec
     private static int DISPLACEMENT = 10; // 10 meters
  
-    // UI elements
+    
     private TextView lblLocation;
     private Button btnShowLocation, btnStartLocationUpdates;
  
@@ -55,7 +55,7 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
         btnShowLocation = (Button) findViewById(R.id.btnShowLocation);
         btnStartLocationUpdates = (Button) findViewById(R.id.btnLocationUpdates);
  
-        // First we need to check availability of play services
+        // check availability of play services
         if (checkPlayServices()) {
  
             // Building the GoogleApi client
@@ -73,7 +73,6 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
             }
         });
  
-        // Toggling the periodic location updates
         btnStartLocationUpdates.setOnClickListener(new View.OnClickListener() {
  
             @Override
