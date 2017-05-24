@@ -47,7 +47,8 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
     private Button btnShowLocation, btnStartLocationUpdates;
  
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) 
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
  
@@ -56,7 +57,8 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
         btnStartLocationUpdates = (Button) findViewById(R.id.btnLocationUpdates);
  
         // First we need to check availability of play services
-        if (checkPlayServices()) {
+        if (checkPlayServices())
+        {
  
             // Building the GoogleApi client
             buildGoogleApiClient();
@@ -65,7 +67,8 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
         }
  
         // Show location button click listener
-        btnShowLocation.setOnClickListener(new View.OnClickListener() {
+        btnShowLocation.setOnClickListener(new View.OnClickListener() 
+        {
  
             @Override
             public void onClick(View v) {
@@ -77,7 +80,8 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
         btnStartLocationUpdates.setOnClickListener(new View.OnClickListener() {
  
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) 
+            {
                 togglePeriodicLocationUpdates();
             }
         });
@@ -85,7 +89,8 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
     }
  
     @Override
-    protected void onStart() {
+    protected void onStart() 
+    {
         super.onStart();
         if (mGoogleApiClient != null) {
             mGoogleApiClient.connect();
@@ -93,7 +98,8 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
     }
  
     @Override
-    protected void onResume() {
+    protected void onResume()
+    {
         super.onResume();
  
         checkPlayServices();
@@ -182,7 +188,8 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
     /**
      * Creating location request object
      * */
-    protected void createLocationRequest() {
+    protected void createLocationRequest() 
+    {
         mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(UPDATE_INTERVAL);
         mLocationRequest.setFastestInterval(FATEST_INTERVAL);
@@ -193,14 +200,19 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
     /**
      * Method to verify google play services on the device
      * */
-    private boolean checkPlayServices() {
+    private boolean checkPlayServices() 
+    {
         int resultCode = GooglePlayServicesUtil
                 .isGooglePlayServicesAvailable(this);
-        if (resultCode != ConnectionResult.SUCCESS) {
-            if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
+        if (resultCode != ConnectionResult.SUCCESS) 
+        {
+            if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) 
+            {
                 GooglePlayServicesUtil.getErrorDialog(resultCode, this,
                         PLAY_SERVICES_RESOLUTION_REQUEST).show();
-            } else {
+            } 
+         else 
+            {
                 Toast.makeText(getApplicationContext(),
                         "This device is not supported.", Toast.LENGTH_LONG)
                         .show();
@@ -224,7 +236,8 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
     /**
      * Stopping location updates
      */
-    protected void stopLocationUpdates() {
+    protected void stopLocationUpdates() 
+    {
         LocationServices.FusedLocationApi.removeLocationUpdates(
                 mGoogleApiClient, this);
     }
@@ -233,14 +246,15 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
      * Google api callback methods
      */
     @Override
-    public void onConnectionFailed(ConnectionResult result) {
+    public void onConnectionFailed(ConnectionResult result) 
+    {
         Log.i(TAG, "Connection failed: ConnectionResult.getErrorCode() = "
                 + result.getErrorCode());
     }
  
     @Override
-    public void onConnected(Bundle arg0) {
- 
+    public void onConnected(Bundle arg0) 
+    {
         // Once connected with google api, get the location
         displayLocation();
  
@@ -250,12 +264,14 @@ public class MainActivity extends Activity implements ConnectionCallbacks,
     }
  
     @Override
-    public void onConnectionSuspended(int arg0) {
+    public void onConnectionSuspended(int arg0) 
+    {
         mGoogleApiClient.connect();
     }
  
     @Override
-    public void onLocationChanged(Location location) {
+    public void onLocationChanged(Location location) 
+    {
         // Assign the new location
         mLastLocation = location;
  
